@@ -1,0 +1,44 @@
+package assignment6;
+
+import java.util.Scanner;
+
+//Nicolas Salado
+//nas17b
+
+public class Palindromes {
+
+	static String checkPalin() {
+		StringBuilder result = new StringBuilder();
+		
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter the number of strings: ");
+		int numOfStrings = input.nextInt();
+		input.nextLine();
+		
+		System.out.println("Enter the strings: ");
+		for (int n = 0; n < numOfStrings; n++) {
+		String user = input.nextLine();
+		
+		
+		boolean isPalin = true;
+		for (int i = 0; i < user.length()/2; i++) {
+			user = user.trim();
+			user = user.toLowerCase();
+			if (user.charAt(i) != user.charAt(user.length()-1-i)) {
+				isPalin = false;
+			}
+			if(isPalin) {
+				result.append(user+ " ");
+				break;
+			}
+			
+		}
+		}
+		
+		return result.toString();
+	}
+	public static void main(String[] args) {
+		String result = checkPalin();
+		System.out.println("The palindromes are: " + result);
+	}
+}
